@@ -1,0 +1,83 @@
+
+What is crowd sourced trust
+	User can vote on businesses
+	businesses are given a rating based on the aggregation of user votes
+		majority vote
+
+	How to stop users from maliciously voting, either purposefully good for their business or
+	purposefully bad for a competitor's business?
+		Give users trust scores based on how many businesses their votes match with the crowd
+		Good users will match more often then not, which increases their trust scores
+		New Users / malicious users will have lower trust scores and cannot swing the business rating as fast
+
+	Attack methods
+		create enough users to swing the vote
+		Have malicious users vote honestly on other businesses to increase trust and then vote on target
+		RepTrap - vote dishonestly on businesses to bring down good user's trust and increase malicious trust
+			then vote on target business
+	
+
+RepTrap applied to yelp dataset
+
+  Split the yelp data
+    Read in the business data and keep: business_id, is_open, name, review_count, stars
+    Read in the review data and keep: business_id, cool, date, funny, review_id, stars, useful, user_id
+
+  Read in the business date and create business objects
+    Saved by business_id
+      Object has:
+        name - name of the business
+        stars - stars given to the business from the percentage of (good votes + half of undecided votes) / total votes
+        review_count - total users who reviewed this business good or bad
+        good - total trust of users who voted good > 3 stars
+        bad - total trust of users who voted bad < 3 stars
+        undecided - total trust of users who voted == 3 stars
+        user_review_bad - user ids who voted < 3 stars
+        user_review_good - user ids who voted >= 3 stars
+
+  Update the state of the simulation by reading review data
+    reset business data
+      total good, bad, and undecided trust
+    reset user data
+      total good and bad votes on business
+
+    Read reviews
+      add the users trust to business good, bad, or undecided votes
+      add the user to the good or bad list of the business
+
+    Add any new malicious votes on business
+
+    update business stars
+      find total trust of users who voted good, bad, and undecided
+      business stars = (good + half of undecided) / total trust
+
+      for all the users who voted correctly, add the business id to their good list
+      for all the users who voted incorrectly, add the business id to their bad list
+
+    update user trust score
+      trust = (correct votes + 1) / (total votes + 2)
+
+    continue loop until the biggest change of any user's trust score is < some threshold (0.1 in my case)
+
+  Call RepTrap to trap the target business
+    calculate correlated group - businesses that were also voted on by users who voted on the target business
+    calculate un-correlated group - business not in the cor_group
+
+    while loop to continue rep trap iterations
+      update the simulation
+
+      calculate total malicious user's trust
+      calculate needed trust to trap the business
+
+      Attempt to trap the target business
+      Attempt to trap a correlated business
+      Attempt to trap an uncorrelated business
+      Vote honestly on un correlated business
+      Vote honestly on correlated business
+
+      Otherwise fail
+
+My Optimizations
+	Handles trapping targets other than just 5 stars
+	Optimization by skipping final trap stage if it is better to just vote honestly
+

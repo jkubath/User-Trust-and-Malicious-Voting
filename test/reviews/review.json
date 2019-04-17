@@ -1,0 +1,4 @@
+{"business_id":"business1","review_id":"review1","stars":5,"useful":1,"user_id":"1"}
+{"business_id":"business1","review_id":"review2","stars":5,"useful":1,"user_id":"2"}
+{"business_id":"business1","review_id":"review3","stars":5,"useful":1,"user_id":"3"}
+{"business_id":"business2","review_id":"review3","stars":5,"useful":1,"user_id":"3"}
