@@ -1,3 +1,6 @@
+# The same implementation as RepTrap, but only honest voting
+# is used to increase the malicious user's trust score.
+
 import pandas as pd # DataFrames
 import os # file system
 import sys # access to argv
@@ -17,11 +20,9 @@ review_files = 2
 # Dictionary for all the users
 # key = user_id
 all_users = {}
-# all_users_list = [] # sorted after each iteration by trust score, then # of good votes
 # Dicionary for all the business'
 # key = business_id
 all_business = {}
-# all_business_list = [] # sorted after each iteration by stars, then review_count
 all_user_count = 0
 all_business_count = 0
 

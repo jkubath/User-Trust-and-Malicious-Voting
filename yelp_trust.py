@@ -1,3 +1,9 @@
+# Yelp trust is designed to assign users a trust score
+# to improve the accuracy of giving busineeses stars.
+# The user trust is based on how many of the current user's votes
+# align with the rest of the crowd.  The more that align, the higher
+# the user's trust score will be.
+
 import pandas as pd # DataFrames
 import os # file system
 import sys # access to argv
@@ -18,11 +24,9 @@ review_files = 2
 # Dictionary for all the users
 # key = user_id
 all_users = {}
-# all_users_list = [] # sorted after each iteration by trust score, then # of good votes
 # Dicionary for all the business'
 # key = business_id
 all_business = {}
-# all_business_list = [] # sorted after each iteration by stars, then review_count
 all_user_count = 0
 all_business_count = 0
 

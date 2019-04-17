@@ -4,7 +4,7 @@ import sys
 
 def main():
 	print("Start")
-	folder = "C:/Users/koob8/Desktop/yelp/dataset/"
+	folder = str(os.getcwd()) + "/data/"
 	filename = "review.json"
 
 	split_folder = "reviews/"
@@ -16,7 +16,7 @@ def main():
 	else:
 		print("Default file: ", folder + filename)
 
-	chunksize = 1000000
+	chunksize = 500000
 
 	reader = pd.read_json(folder + filename, orient = 'records', lines = True, chunksize = chunksize)
 
@@ -25,7 +25,7 @@ def main():
 	try:
 	    # Create target Directory
 	    os.mkdir(folder + split_folder)
-	    print("Directory " , folder + split_folder ,  " Created ") 
+	    print("Directory " , folder + split_folder ,  " Created ")
 	except FileExistsError:
 	    print("Directory " , folder + split_folder ,  " already exists")
 

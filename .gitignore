@@ -1,12 +1,5 @@
 
-reviews/review_0.json
-reviews/review_1.json
-reviews/review_2.json
-reviews/review_3.json
-reviews/review_4.json
-reviews/review_5.json
-reviews/review_6.json
-small_data/user/user.json
+data/review.json
+data/business.json
+data/user.json
 small_data_001/reviews/review.json
-user/user_0.json
-user/user_1.json
