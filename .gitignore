@@ -3,3 +3,4 @@ data/review.json
 data/business.json
 data/user.json
 small_data_001/reviews/review.json
+.DS_Store
