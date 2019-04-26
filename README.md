@@ -1,17 +1,17 @@
-# User-Trust-and-Malicious-Voting
+# User-Trust-and-Malicious-Voting<br/>
 Look into assigning user trust scores in a crowd sourced voting scheme for business ratings.
 
-# RepTrap Resource
-Q. Feng, Y. Sun, L. Liu, Y. Yang, Y. Dai
+# RepTrap Resource<br/>
+Q. Feng, Y. Sun, L. Liu, Y. Yang, Y. Dai<br/>
 "Voting Systems with Trust Mechanisms in Cyberspace: Vulnerabilities and Defenses", 2010.
 
-# Main Files
-yelp_trust.py - RepTrap voting strategy.
-yelp_trust_optimized.py - RepTrap voting strategy with honest voting optimization.
-yelp_trust_honest.py - Only honest voting strategy.
+# Main Files<br/>
+yelp_trust.py - RepTrap voting strategy.<br/>
+yelp_trust_optimized.py - RepTrap voting strategy with honest voting optimization.<br/>
+yelp_trust_honest.py - Only honest voting strategy.<br/>
 
-# Data
-https://www.yelp.com/dataset
+# Data<br/>
+https://www.yelp.com/dataset<br/>
 
 # RepTrap
 The algorithm for RepTrap was taken from the included paper:
